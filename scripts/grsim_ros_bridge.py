@@ -7,10 +7,14 @@ import numpy as np
 import csv
 import rospkg
 import time
+import os
 
 from erforce.model import RobotCommand, MoveLocalVelocity
 from erforce.client import ErForceClient
 client = ErForceClient()
+
+myCmd = '/home/ricardo/ssl_ws/src/grSim/bin/grSim'
+os.system(myCmd)
 
 def cmd_vel_callback(data):
     global client
@@ -21,7 +25,7 @@ def cmd_vel_callback(data):
     client.send_action_command(robot_command)
 
 if __name__ == "__main__":
-    rospy.init_node("grsim_ros_bridge", anonymous=False)
+    rospy.init_node("grsim_ros_bridge", anonymous=False)    
 
     rospy.Subscriber("/cmd_vel", Twist, cmd_vel_callback)
 
