@@ -12,6 +12,8 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  message_generation
+  grsim_ros_bridge_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -94,6 +96,8 @@ find_package(catkin REQUIRED COMPONENTS
 #   cfg/DynReconf2.cfg
 # )
 
+
+
 ###################################
 ## catkin specific configuration ##
 ###################################
@@ -103,12 +107,6 @@ find_package(catkin REQUIRED COMPONENTS
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
-catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES grsim_ros_bridge
-#  CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs
-#  DEPENDS system_lib
-)
 
 ###########
 ## Build ##
@@ -192,6 +190,25 @@ include_directories(
 #   # myfile2
 #   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 # )
+
+add_message_files(
+  FILES
+  grsim_bridge_msg.msg
+)
+
+generate_messages(
+  DEPENDENCIES
+  geometry_msgs
+  std_msgs  
+)
+
+catkin_package(
+#  INCLUDE_DIRS include
+#  LIBRARIES grsim_ros_bridge
+#  CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs
+#  DEPENDS system_lib
+CATKIN_DEPENDS message_runtime
+)
 
 #############
 ## Testing ##
