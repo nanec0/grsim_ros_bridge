@@ -17,7 +17,7 @@ from erforce.client import ErForceClientYellow
 clientblue = ErForceClientBlue()
 clientyellow = ErForceClientYellow()
 
-# myCmd = '/home/ricardo/ssl_ws/src/grSim/bin/grSim'
+# myCmd = '/home/nano/urucup/src/grSim/bin/grSim'
 # os.system(myCmd)
 
 KICKER_SPEED = 1.0

@@ -3,5 +3,5 @@ import rospy
 import rospkg
 import os
 
-myCmd = '/home/ricardo/ssl_ws/src/grSim/bin/grSim'
+myCmd = '/home/nano/urucup/src/grSim/bin/grSim' #este es el directorio donde quedo instalado
 os.system(myCmd)
